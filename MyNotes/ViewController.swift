@@ -21,7 +21,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return NoteManager().searchText("Second")!
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let noteManager=NoteManager()

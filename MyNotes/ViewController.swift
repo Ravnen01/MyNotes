@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
    
     var notes: [Note]{
-        return NoteManager().fetchNotes()!
+        return NoteManager().searchText("Second")!
     }
     
 

@@ -47,4 +47,27 @@ class NoteManager: NSObject {
         note.text=text
         return note
     }
+    
+    func searchText(search:String?)->[Note]?{
+        if let _=search {
+            
+            let fetchRequest=NSFetchRequest(entityName: "Note")
+            let sortDescriptor=NSSortDescriptor(key:"title",ascending:true)
+            let textSortDescriptor = NSSortDescriptor(key: "text", ascending: true)
+            fetchRequest.sortDescriptors=[sortDescriptor,textSortDescriptor]
+        
+            let predicate = NSPredicate(format: "(title contains %@) OR (text contains %@)", search!, search!)
+            fetchRequest.predicate=predicate;
+        
+            do{
+                let result = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Note]
+                return result
+            }catch let error as NSError{
+                print("Could not fetch Notes : \(error)")
+            }
+            
+        }
+        return [Note]()
+        
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CategoryViewController.swift
 //  MyNotes
 //
 //  Created by iem on 03/02/2016.
@@ -9,42 +9,46 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     var appDelegate: AppDelegate{
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
-   
-    var notes: [Note]{
-        return NoteManager().searchText("Second")!
+    
+    var categories: [Category]{
+        return CategoryManager().fetchCategory()!
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let noteManager=NoteManager()
+        let categoryManager=CategoryManager()
+        categoryManager.createCategory("Toto")
+        categoryManager.createCategory("Titi")
+        categoryManager.createCategory("Tutu")
+        categoryManager.createCategory("Tata")
         
-        noteManager.createNote("First Note", text:"First Text")
-        noteManager.createNote("Second Note", text:"First Text")
-        noteManager.createNote("Therd Note", text:"First Text")
-        noteManager.createNote("for Note", text:"First Text")
-        noteManager.appDelegate.saveContext()
-        
+        categoryManager.appDelegate.saveContext()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
+
     //MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        return categories.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let note=notes[indexPath.row]
+        let category=categories[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
-        cell?.textLabel?.text=note.title
-        cell?.detailTextLabel?.text=note.title
+        cell?.textLabel?.text=category.name
         
         return cell!
     }
@@ -53,6 +57,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
-
 }
-

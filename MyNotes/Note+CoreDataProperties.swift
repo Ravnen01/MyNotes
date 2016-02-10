@@ -2,7 +2,7 @@
 //  Note+CoreDataProperties.swift
 //  MyNotes
 //
-//  Created by iem on 03/02/2016.
+//  Created by iem on 10/02/2016.
 //  Copyright © 2016 iem. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -18,6 +18,7 @@ extension Note {
     @NSManaged var dateUpdate: NSTimeInterval
     @NSManaged var text: String?
     @NSManaged var title: String?
-    @NSManaged var category: NSManagedObject?
+    @NSManaged var photo: NSData?
+    @NSManaged var category: Category?
 
 }

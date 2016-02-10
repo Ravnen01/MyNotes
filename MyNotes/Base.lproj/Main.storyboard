@@ -69,7 +69,6 @@
         <!--Notes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Notes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="MyNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -143,8 +142,44 @@
                         <outlet property="tableView" destination="uHl-HJ-Pbn" id="Wh4-HT-vU2"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2399" y="191"/>
+        </scene>
+        <!--TextNote-->
+        <scene sceneID="k5o-WC-meO">
+            <objects>
+                <viewController storyboardIdentifier="TextNote" title="TextNote" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zkg-xd-Wah" customClass="TextNoteViewController" customModule="MyNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o7K-cn-cpK"/>
+                        <viewControllerLayoutGuide type="bottom" id="R6I-fC-8zN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L5d-Nd-99C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-L3-w1s">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NQl-L3-w1s" firstAttribute="top" secondItem="L5d-Nd-99C" secondAttribute="topMargin" id="1VT-Kx-oJt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NQl-L3-w1s" secondAttribute="trailing" constant="-20" id="SkE-gR-7Hj"/>
+                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" id="cQD-B1-6zO"/>
+                            <constraint firstItem="NQl-L3-w1s" firstAttribute="leading" secondItem="L5d-Nd-99C" secondAttribute="leadingMargin" constant="-20" id="eOI-yj-CDS"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yfo-CF-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3031" y="191"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f8D-b6-6pr">

@@ -47,9 +47,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("TextNote") as! TextNoteViewController
+        navigationController!.pushViewController(affichageController, animated: true)
+    }
 
     @IBAction func addNote(sender: AnyObject) {
-        let alert=UIAlertController(title: "Categorie", message: "Ajouter une categorie", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert=UIAlertController(title: "Note", message: "Ajouter une Note", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addTextFieldWithConfigurationHandler(configurationTextField)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: handleCancel))

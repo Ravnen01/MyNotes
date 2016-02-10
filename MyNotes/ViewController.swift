@@ -30,6 +30,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         noteManager.appDelegate.saveContext()
         
         notes=NoteManager().fetchNotes()
+        
+        // fonction à créer
+        
+//        let selectedTags = [Tag]()
+//        
+//        let note = notes![0]
+//        
+//        note.tags = NSSet(array: selectedTags)
+        
+        //
+
+        
     }
     
     //MARK: UITableViewDataSource
@@ -54,18 +66,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func autoUpdateTags(myNote : Note, tagSelection : [Tag]){
         
-        let selectedTags = [Tag](tagSelection)
-        
-        myNote.tags = NSSet(array: selectedTags)
+        myNote.tags = NSSet(array: tagSelection)
     }
     
     func autoUpdatePictures(myNote : Note, pictureSelection : [Picture]){
         
-        let selectedPictures = [Picture](pictureSelection)
-        
-        myNote.pictures = NSSet(array: selectedPictures)
+        myNote.pictures = NSSet(array: pictureSelection)
         
     }
+    
+//    if let _ = self.pictures {
+//        
+//        if let currentPhotos : NSMutableSet = self.pictures!.mutableCopy() as? NSMutableSet {
+//            
+//            currentPhotos.addObjectsFromArray(photos)
+//            
+//            self.pictures = currentPhotos
+//        }
+//    } else {
+//    
+//    self.pictures = NSSet(objects: photos)
+//    }
+
+
 
 }
 

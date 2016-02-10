@@ -11,7 +11,83 @@ import CoreData
 
 
 class Note: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-
+    
+    // FUNCTIONS
+    
+    
+    
+    enum SearchField : String{
+        case Tags = "tags"
+        case Pictures = "pictures"
+    }
+    
+    func searchByAttribute(field : SearchField, textSearched : String) -> [AnyObject]? {
+        
+        switch field {
+            case .Tags :
+                break
+            
+            case .Pictures :
+                break
+        }
+        
+        return [AnyObject]()
+    }
+    
+    //PICTURES FUNCTIONS
+    
+    func addPhotos(photos : [Picture]){
+        
+        if let _ = self.pictures {
+            
+            if let currentPhotos : NSMutableSet = self.pictures!.mutableCopy() as? NSMutableSet {
+                
+                currentPhotos.addObjectsFromArray(photos)
+                
+                self.pictures = currentPhotos
+            }
+        } else {
+            
+            self.pictures = NSSet(objects: photos)
+        }
+        
+    }
+    
+    func addPhoto(photo : Picture){
+        addPhotos([photo])
+    }
+    
+    func deleteAllPhotos(){
+        
+        self.pictures = nil
+    }
+    
+    //TAGS FUNCTIONS
+    
+    func addTags(tags : [Tag]){
+        
+        if let _ = self.tags {
+            if let currentTags : NSMutableSet = self.tags!.mutableCopy() as? NSMutableSet {
+                
+                currentTags.addObjectsFromArray(tags)
+                
+                self.tags = currentTags
+            }
+        } else {
+            
+            self.tags = NSSet(objects: tags)
+        }
+        
+    }
+    
+    func addTag(tag : Tag){
+        addTags([tag])
+    }
+    
+    func deleteAllTags(){
+        
+        self.tags = nil
+        
+    }
+    
 }

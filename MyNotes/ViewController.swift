@@ -30,7 +30,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         noteManager.appDelegate.saveContext()
         
         notes=NoteManager().fetchNotes()
-        
     }
     
     //MARK: UITableViewDataSource
@@ -52,7 +51,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-
+    
+    func autoUpdateTags(myNote : Note, tagSelection : [Tag]){
+        
+        let selectedTags = [Tag](tagSelection)
+        
+        myNote.tags = NSSet(array: selectedTags)
+    }
+    
+    func autoUpdatePictures(myNote : Note, pictureSelection : [Picture]){
+        
+        let selectedPictures = [Picture](pictureSelection)
+        
+        myNote.pictures = NSSet(array: selectedPictures)
+        
+    }
 
 }
 

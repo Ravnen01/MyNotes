@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class NoteManager: NSObject {
 
     var appDelegate: AppDelegate{
@@ -44,7 +45,7 @@ class NoteManager: NSObject {
         let entity = NSEntityDescription.entityForName("Note", inManagedObjectContext: managedObjectContext)
         let note = NSManagedObject(entity:entity!,insertIntoManagedObjectContext: managedObjectContext) as! Note
         note.title=title
-        note.text=text
+        //note.text=text
         return note
     }
     

@@ -17,9 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return UIApplication.sharedApplication().delegate as! AppDelegate
     }
    
-    var notes: [Note]{
-        return NoteManager().searchText("Second")!
-    }
+    var notes: [Note]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +29,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         noteManager.createNote("for Note", text:"First Text")
         noteManager.appDelegate.saveContext()
         
+        notes=NoteManager().fetchNotes()
+        
     }
     
     //MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
+        return notes!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let note=notes[indexPath.row]
+        let note=notes![indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         cell?.textLabel?.text=note.title

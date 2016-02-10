@@ -12,6 +12,7 @@ import CoreData
 class CategoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var textField:UITextField=UITextField(frame:CGRectMake(0, 0, 10, 10))
     
     var appDelegate: AppDelegate{
         return UIApplication.sharedApplication().delegate as! AppDelegate
@@ -20,14 +21,8 @@ class CategoryViewController: UIViewController {
     var categories: [Category]?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        let categoryManager=CategoryManager()
-        categoryManager.createCategory("Toto")
-        categoryManager.createCategory("Titi")
-        categoryManager.createCategory("Tutu")
-        categoryManager.createCategory("Tata")
         
-        categoryManager.appDelegate.saveContext()
+        super.viewDidLoad()
         
         categories=CategoryManager().fetchCategory()
     }
@@ -56,5 +51,39 @@ class CategoryViewController: UIViewController {
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("Notes") as! ViewController
+        navigationController!.pushViewController(affichageController, animated: true)
+    }
 
+    @IBAction func newAction(sender: AnyObject) {
+        let alert=UIAlertController(title: "Categorie", message: "Ajouter une categorie", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: handleCancel))
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction)in self.addCategorie(self.textField.text!)}));
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    func handleCancel(alertView:UIAlertAction!){
+        
+    }
+    func configurationTextField(textField:UITextField!){
+        if let _ = textField{
+            self.textField=textField!
+        }
+    }
+    func addCategorie(cate:String){
+        let categoryManager=CategoryManager()
+        let categorie=categoryManager.createCategory(cate)
+        categoryManager.appDelegate.saveContext()
+        
+        categories!.append(categorie!)
+        tableView.reloadData()
+    }
+    
 }

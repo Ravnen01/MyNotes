@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Category View Controller-->
+        <!--Categorie-->
         <scene sceneID="4qw-Bj-54u">
             <objects>
                 <viewController id="lGZ-GD-k55" customClass="CategoryViewController" customModule="MyNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,19 +49,27 @@
                             <constraint firstItem="tDt-gq-IHc" firstAttribute="leading" secondItem="Wv4-Rz-q5H" secondAttribute="leadingMargin" constant="-20" id="lyT-KS-SKe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hsw-EA-siS"/>
+                    <navigationItem key="navigationItem" title="Categorie" id="hsw-EA-siS">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="klA-DV-vRI"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="8et-4s-3rE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" width="33" id="zVu-yc-Wpo">
+                            <connections>
+                                <action selector="newAction:" destination="lGZ-GD-k55" id="Yry-mN-yv5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="tDt-gq-IHc" id="v1z-mP-IUM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bog-dc-E53" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1571" y="167"/>
+            <point key="canvasLocation" x="1629" y="167"/>
         </scene>
-        <!--View Controller-->
+        <!--Notes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Notes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="MyNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -76,7 +84,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="aSd-BW-aek" detailTextLabel="NRz-4T-lnV" style="IBUITableViewCellStyleSubtitle" id="bsV-qJ-X7h">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="72"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsV-qJ-X7h" id="39Y-J5-rnL">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="71"/>
@@ -113,28 +121,65 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="uHl-HJ-Pbn" secondAttribute="trailing" constant="-20" id="2IC-xC-843"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uHl-HJ-Pbn" secondAttribute="trailing" constant="-20" id="5gR-3P-Z9t"/>
-                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="7VD-D2-C6x"/>
-                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="9TQ-m5-3ro"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uHl-HJ-Pbn" secondAttribute="bottom" id="CKb-vh-qLF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uHl-HJ-Pbn" secondAttribute="bottom" id="G34-dP-J6F"/>
-                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Jd4-DO-h6F"/>
-                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="L6x-WU-QmE"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uHl-HJ-Pbn" secondAttribute="bottom" id="ZKw-22-Acf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="uHl-HJ-Pbn" secondAttribute="trailing" constant="-20" id="m2u-Ys-vI3"/>
-                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="mci-lG-WNv"/>
-                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ykX-fG-hpl"/>
+                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="7F7-dK-sEK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uHl-HJ-Pbn" secondAttribute="trailing" constant="-20" id="IAn-hP-AUn"/>
+                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="XyP-5s-JRQ"/>
+                            <constraint firstItem="uHl-HJ-Pbn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="bXn-jB-hlS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SDy-7k-mt0"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Notes" id="gk4-0H-Rko">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="y6a-HL-2bZ">
+                            <connections>
+                                <action selector="addNote:" destination="BYZ-38-t0r" id="Xng-IO-a8i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="uHl-HJ-Pbn" id="Wh4-HT-vU2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184" y="318"/>
+            <point key="canvasLocation" x="2399" y="191"/>
+        </scene>
+        <!--TextNote-->
+        <scene sceneID="k5o-WC-meO">
+            <objects>
+                <viewController storyboardIdentifier="TextNote" title="TextNote" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zkg-xd-Wah" customClass="TextNoteViewController" customModule="MyNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="o7K-cn-cpK"/>
+                        <viewControllerLayoutGuide type="bottom" id="R6I-fC-8zN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L5d-Nd-99C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-L3-w1s">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NQl-L3-w1s" firstAttribute="top" secondItem="L5d-Nd-99C" secondAttribute="topMargin" id="1VT-Kx-oJt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NQl-L3-w1s" secondAttribute="trailing" constant="-20" id="SkE-gR-7Hj"/>
+                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" id="cQD-B1-6zO"/>
+                            <constraint firstItem="NQl-L3-w1s" firstAttribute="leading" secondItem="L5d-Nd-99C" secondAttribute="leadingMargin" constant="-20" id="eOI-yj-CDS"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yfo-CF-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3031" y="191"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f8D-b6-6pr">

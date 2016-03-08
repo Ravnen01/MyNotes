@@ -12,6 +12,8 @@ import CoreData
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    var textField:UITextField=UITextField(frame:CGRectMake(0, 0, 10, 10))
+
     
     var appDelegate: AppDelegate{
         return UIApplication.sharedApplication().delegate as! AppDelegate
@@ -21,13 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let noteManager=NoteManager()
-        
-        noteManager.createNote("First Note", text:"First Text")
-        noteManager.createNote("Second Note", text:"First Text")
-        noteManager.createNote("Therd Note", text:"First Text")
-        noteManager.createNote("for Note", text:"First Text")
-        noteManager.appDelegate.saveContext()
         
         notes=NoteManager().fetchNotes()
         
@@ -60,10 +55,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell!
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
     func autoUpdateTags(myNote : Note, tagSelection : [Tag]){
         
         myNote.tags = NSSet(array: tagSelection)
@@ -75,20 +66,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-//    if let _ = self.pictures {
-//        
-//        if let currentPhotos : NSMutableSet = self.pictures!.mutableCopy() as? NSMutableSet {
-//            
-//            currentPhotos.addObjectsFromArray(photos)
-//            
-//            self.pictures = currentPhotos
-//        }
-//    } else {
-//    
-//    self.pictures = NSSet(objects: photos)
-//    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("TextNote") as! TextNoteViewController
+        navigationController!.pushViewController(affichageController, animated: true)
+    }
 
-
+    @IBAction func addNote(sender: AnyObject) {
+        let alert=UIAlertController(title: "Note", message: "Ajouter une Note", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler(configurationTextField)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: handleCancel))
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (UIAlertAction)in self.addNotes(self.textField.text!)}));
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func handleCancel(alertView:UIAlertAction!){
+        
+    }
+    
+    func configurationTextField(textField:UITextField!){
+        if let _ = textField{
+            self.textField=textField!
+        }
+    }
+    
+    func addNotes(cate:String){
+        let noteManager=NoteManager()
+        let note=noteManager.createNote(cate, text: "")
+        noteManager.appDelegate.saveContext()
+        
+        notes!.append(note!)
+        tableView.reloadData()
+    }
 
 }
 

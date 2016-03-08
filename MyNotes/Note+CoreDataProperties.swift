@@ -18,7 +18,9 @@ extension Note {
     @NSManaged var dateUpdate: NSTimeInterval
     @NSManaged var text: String?
     @NSManaged var title: String?
-    @NSManaged var photo: NSData?
+    @NSManaged var position: NSObject?
     @NSManaged var category: Category?
+    @NSManaged var tags: NSSet?
+    @NSManaged var pictures: NSSet?
 
 }

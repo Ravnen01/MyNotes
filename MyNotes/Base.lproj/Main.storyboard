@@ -167,13 +167,26 @@
                                     <outlet property="delegate" destination="Zkg-xd-Wah" id="4NU-gu-G0x"/>
                                 </connections>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB3-iW-xF5">
+                                <rect key="frame" x="524" y="536" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="kIl-VQ-N8z"/>
+                                    <constraint firstAttribute="height" constant="56" id="nMr-T1-thy"/>
+                                </constraints>
+                                <state key="normal" image="mPictures"/>
+                                <connections>
+                                    <action selector="addPictureButton:" destination="Zkg-xd-Wah" eventType="touchUpInside" id="bjJ-XF-bEq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NQl-L3-w1s" firstAttribute="top" secondItem="L5d-Nd-99C" secondAttribute="topMargin" id="1VT-Kx-oJt"/>
+                            <constraint firstItem="ZB3-iW-xF5" firstAttribute="trailing" secondItem="L5d-Nd-99C" secondAttribute="trailingMargin" id="2K2-cL-rMg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NQl-L3-w1s" secondAttribute="trailing" constant="-20" id="SkE-gR-7Hj"/>
                             <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" id="cQD-B1-6zO"/>
                             <constraint firstItem="NQl-L3-w1s" firstAttribute="leading" secondItem="L5d-Nd-99C" secondAttribute="leadingMargin" constant="-20" id="eOI-yj-CDS"/>
+                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="ZB3-iW-xF5" secondAttribute="bottom" constant="8" id="qAU-Qr-J03"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tTz-f0-bnZ">
@@ -251,4 +264,7 @@
             <point key="canvasLocation" x="3899" y="191"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mPictures" width="128" height="128"/>
+    </resources>
 </document>

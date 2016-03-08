@@ -14,6 +14,8 @@ class TextNoteViewController: UIViewController {
     
     var parent:ViewProtocol?
     var note:Note?
+    
+    let picker = UIImagePickerController()
 
     @IBOutlet weak var textView: UITextView!
     
@@ -47,6 +49,9 @@ class TextNoteViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func addPictureButton(sender: UIButton) {
+        
+    }
 
 }
 

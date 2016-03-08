@@ -48,8 +48,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("TextNote") as! TextNoteViewController
-        navigationController!.pushViewController(affichageController, animated: true)
+        /*let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("TextNote") as! TextNoteViewController
+        navigationController!.pushViewController(affichageController, animated: true)*/
     }
 
     @IBAction func addNote(sender: AnyObject) {

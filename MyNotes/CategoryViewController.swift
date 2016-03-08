@@ -53,8 +53,8 @@ class CategoryViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("Notes") as! ViewController
-        navigationController!.pushViewController(affichageController, animated: true)
+        /*let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("Notes") as! ViewController
+        navigationController!.pushViewController(affichageController, animated: true)*/
     }
 
     @IBAction func newAction(sender: AnyObject) {

@@ -20,6 +20,7 @@ class TextNoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title=note?.title
+        textView.text = note?.text
         // Do any additional setup after loading the view.
     }
 
@@ -33,6 +34,8 @@ class TextNoteViewController: UIViewController {
         parent?.onCancelChildren()
     }
     @IBAction func SaveButton(sender: AnyObject) {
+        note?.text = textView.text
+        NoteManager().appDelegate.saveContext()
         parent?.onCancelChildren()
     }
     /*

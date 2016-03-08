@@ -45,7 +45,8 @@ class NoteManager: NSObject {
         let entity = NSEntityDescription.entityForName("Note", inManagedObjectContext: managedObjectContext)
         let note = NSManagedObject(entity:entity!,insertIntoManagedObjectContext: managedObjectContext) as! Note
         note.title=title
-        appDelegate.saveContext()
+        note.category=categorie
+        //note.text=text
         return note
     }
     
@@ -71,14 +72,5 @@ class NoteManager: NSObject {
         return [Note]()
         
     }
-    
-    func fetchDataInNote(mNote : Note)->String?{
-        let textInNote = mNote.text
-        
-        return textInNote
-    }
-    
-    func saveChangeNoteInMemory(){
-        appDelegate.saveContext()
-    }
+
 }

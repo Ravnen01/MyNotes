@@ -19,6 +19,7 @@ class Note: NSManagedObject {
     enum SearchField : String{
         case Tags = "tags"
         case Pictures = "pictures"
+        case Category = "category"
     }
     
     func searchByAttribute(field : SearchField, textSearched : String) -> [AnyObject]? {
@@ -28,6 +29,9 @@ class Note: NSManagedObject {
                 break
             
             case .Pictures :
+                break
+            
+            case .Category :
                 break
         }
         
@@ -89,5 +93,9 @@ class Note: NSManagedObject {
         self.tags = nil
         
     }
+    
+    //CATEGORY FUNCTIONS
+    
+    
     
 }

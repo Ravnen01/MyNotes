@@ -15,9 +15,12 @@ class TextNoteViewController: UIViewController {
     var parent:ViewProtocol?
     var note:Note?
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title=note?.title
+        textView.text = note?.text
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +34,8 @@ class TextNoteViewController: UIViewController {
         parent?.onCancelChildren()
     }
     @IBAction func SaveButton(sender: AnyObject) {
+        note?.text = textView.text
+        NoteManager().appDelegate.saveContext()
         parent?.onCancelChildren()
     }
     /*
@@ -43,4 +48,19 @@ class TextNoteViewController: UIViewController {
     }
     */
 
+}
+
+extension TextNoteViewController : UITextViewDelegate {
+    
+    func textViewDidChange(textView: UITextView) {
+        
+        print("New text \(textView.text)")
+    
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if(textView.text! == "Tapez votre texte...") {
+            textView.text = ""
+        }
+    }
 }

@@ -72,4 +72,5 @@ class NoteManager: NSObject {
         return [Note]()
         
     }
+
 }

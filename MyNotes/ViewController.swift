@@ -49,15 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("TextNote") as! TextNoteViewController
-        //navigationController!.pushViewController(affichageController, animated: true)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier==""{
-            let destination=segue.destinationViewController as! TextNoteViewController
-            
-            
-        }
+        navigationController!.pushViewController(affichageController, animated: true)
     }
 
     @IBAction func addNote(sender: AnyObject) {

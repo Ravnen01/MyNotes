@@ -9,8 +9,7 @@
 import UIKit
 
 class TextNoteViewController: UIViewController {
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

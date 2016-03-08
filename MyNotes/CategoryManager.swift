@@ -42,11 +42,5 @@ class CategoryManager: NSObject {
         category.name=name
         return category
     }
-    
-    func fetchNotesInCategory(nameCategory: Category)->[Note]?{
-        let listNotes : [Note] = nameCategory.notes?.allObjects as! [Note]
-        
-        return listNotes
-    }
 
 }

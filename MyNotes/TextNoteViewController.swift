@@ -12,6 +12,8 @@ class TextNoteViewController: UIViewController {
     
     var parent:ViewProtocol?
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,4 +39,19 @@ class TextNoteViewController: UIViewController {
     }
     */
 
+}
+
+extension TextNoteViewController : UITextViewDelegate {
+    
+    func textViewDidChange(textView: UITextView) {
+        
+        print("New text \(textView.text)")
+    
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if(textView.text! == "Tapez votre texte...") {
+            textView.text = ""
+        }
+    }
 }

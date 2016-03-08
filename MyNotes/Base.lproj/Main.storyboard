@@ -50,7 +50,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Categorie" id="hsw-EA-siS">
                         <barButtonItem key="backBarButtonItem" title="Back" id="klA-DV-vRI"/>
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="8et-4s-3rE"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zVu-yc-Wpo">
                             <connections>
                                 <action selector="newAction:" destination="lGZ-GD-k55" id="Yry-mN-yv5"/>
@@ -181,7 +180,11 @@
                                 <action selector="DoneButton:" destination="Zkg-xd-Wah" id="dYt-dl-7Lk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ceP-tU-Y50"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ceP-tU-Y50">
+                            <connections>
+                                <action selector="SaveButton:" destination="Zkg-xd-Wah" id="QIC-0h-IYn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yfo-CF-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>

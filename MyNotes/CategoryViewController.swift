@@ -89,9 +89,11 @@ class CategoryViewController: UIViewController, ViewProtocol {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier=="CategorieToNote"{
+            let itemSelected=tableView.indexPathForCell(sender as!UITableViewCell)?.row
             let NavigationController=segue.destinationViewController as! UINavigationController
             let destination=NavigationController.viewControllers[0] as! ViewController
             destination.parent=self
+            destination.categorie=categories![itemSelected!]
         }
     }
     

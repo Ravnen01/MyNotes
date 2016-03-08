@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import CoreData
+
 
 class TextNoteViewController: UIViewController {
     
     var parent:ViewProtocol?
+    var note:Note?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title=note?.title
         // Do any additional setup after loading the view.
     }
 
@@ -25,6 +28,9 @@ class TextNoteViewController: UIViewController {
     
 
     @IBAction func DoneButton(sender: AnyObject) {
+        parent?.onCancelChildren()
+    }
+    @IBAction func SaveButton(sender: AnyObject) {
         parent?.onCancelChildren()
     }
     /*

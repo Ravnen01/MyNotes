@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19A922221C8ECEE5002E013B /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A922211C8ECEE5002E013B /* ViewProtocol.swift */; };
 		B89CE4021C6B8A4400DCDE58 /* TextNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89CE4011C6B8A4400DCDE58 /* TextNoteViewController.swift */; };
 		B8BACBC61C6215E7003E0BAA /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BACBC21C6215E7003E0BAA /* Note+CoreDataProperties.swift */; };
 		B8BACBC71C6215E7003E0BAA /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BACBC31C6215E7003E0BAA /* Note.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19A922211C8ECEE5002E013B /* ViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		B89CE4011C6B8A4400DCDE58 /* TextNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextNoteViewController.swift; sourceTree = "<group>"; };
 		B8BACBC21C6215E7003E0BAA /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8BACBC31C6215E7003E0BAA /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				B8F513CA1C620D81008C8FFB /* LaunchScreen.storyboard */,
 				B8F513CD1C620D81008C8FFB /* Info.plist */,
 				B8F513C51C620D81008C8FFB /* MyNotes.xcdatamodeld */,
+				19A922211C8ECEE5002E013B /* ViewProtocol.swift */,
 			);
 			path = MyNotes;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				B8E7E7101C8EC7D600448667 /* Tag.swift in Sources */,
 				B89CE4021C6B8A4400DCDE58 /* TextNoteViewController.swift in Sources */,
 				B8E7E7111C8EC7D600448667 /* Tag+CoreDataProperties.swift in Sources */,
+				19A922221C8ECEE5002E013B /* ViewProtocol.swift in Sources */,
 				B8BACBC91C6215E7003E0BAA /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

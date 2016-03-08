@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController, ViewProtocol {
     
     @IBOutlet weak var tableView: UITableView!
     var textField:UITextField=UITextField(frame:CGRectMake(0, 0, 10, 10))
@@ -85,6 +85,18 @@ class CategoryViewController: UIViewController {
         
         categories!.append(categorie!)
         tableView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier=="CategorieToNote"{
+            let NavigationController=segue.destinationViewController as! UINavigationController
+            let destination=NavigationController.viewControllers[0] as! ViewController
+            destination.parent=self
+        }
+    }
+    
+    func onCancelChildren() {
+        self.dismissViewControllerAnimated(true, completion: {})
     }
     
 }

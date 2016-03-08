@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ViewProtocol {
+    
+    var parent:ViewProtocol?
     
     @IBOutlet weak var tableView: UITableView!
     var textField:UITextField=UITextField(frame:CGRectMake(0, 0, 10, 10))
@@ -40,6 +42,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //MARK: UITableViewDataSource
+    
+    @IBAction func DoneButton(sender: AnyObject) {
+        parent?.onCancelChildren()
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notes!.count
@@ -98,6 +104,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         notes!.append(note!)
         tableView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier=="NoteToText"{
+            let NavigationController=segue.destinationViewController as! UINavigationController
+            let destination=NavigationController.viewControllers[0] as! TextNoteViewController
+            destination.parent=self
+        }
+    }
+    
+    func onCancelChildren() {
+        self.dismissViewControllerAnimated(true, completion: {})
     }
 
 }

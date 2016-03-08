@@ -9,6 +9,8 @@
 import UIKit
 
 class TextNoteViewController: UIViewController {
+    
+    var parent:ViewProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,9 @@ class TextNoteViewController: UIViewController {
     }
     
 
+    @IBAction func DoneButton(sender: AnyObject) {
+        parent?.onCancelChildren()
+    }
     /*
     // MARK: - Navigation
 

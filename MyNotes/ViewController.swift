@@ -12,6 +12,7 @@ import CoreData
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ViewProtocol {
     
     var parent:ViewProtocol?
+    var categorie:Category?
     
     @IBOutlet weak var tableView: UITableView!
     var textField:UITextField=UITextField(frame:CGRectMake(0, 0, 10, 10))
@@ -25,8 +26,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        notes=NoteManager().fetchNotes()
+        title=categorie?.name
+        notes=categorie?.notes?.allObjects as! [Note]
         
         // fonction à créer
         
@@ -97,9 +98,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func addNotes(cate:String){
+    func addNotes(text:String){
         let noteManager=NoteManager()
-        let note=noteManager.createNote(cate, text: "")
+        let note=noteManager.createNote(text, categorie: categorie!)
         noteManager.appDelegate.saveContext()
         
         notes!.append(note!)
@@ -108,9 +109,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier=="NoteToText"{
+            let itemSelected=tableView.indexPathForCell(sender as!UITableViewCell)?.row
             let NavigationController=segue.destinationViewController as! UINavigationController
             let destination=NavigationController.viewControllers[0] as! TextNoteViewController
             destination.parent=self
+            destination.note=notes![itemSelected!]
         }
     }
     

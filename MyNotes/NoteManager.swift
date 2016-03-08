@@ -41,7 +41,7 @@ class NoteManager: NSObject {
         return [Note]()
     }
     
-    func createNote(title: String, text:String)->Note?{
+    func createNote(title: String, categorie:Category)->Note?{
         let entity = NSEntityDescription.entityForName("Note", inManagedObjectContext: managedObjectContext)
         let note = NSManagedObject(entity:entity!,insertIntoManagedObjectContext: managedObjectContext) as! Note
         note.title=title

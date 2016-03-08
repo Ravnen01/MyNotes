@@ -1,5 +1,5 @@
 //
-//  Category+CoreDataProperties.swift
+//  Picture+CoreDataProperties.swift
 //  MyNotes
 //
 //  Created by iem on 10/02/2016.
@@ -12,11 +12,11 @@
 import Foundation
 import CoreData
 
-extension Category {
+extension Picture {
 
-    @NSManaged var name: String?
-    @NSManaged var dateUpdated: NSDate?
+    @NSManaged var picture: NSData?
     @NSManaged var dateCreated: NSDate?
+    @NSManaged var dateUpdated: NSDate?
     @NSManaged var notes: NSSet?
 
 }

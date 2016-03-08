@@ -26,6 +26,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         notes=NoteManager().fetchNotes()
         
+        // fonction à créer
+        
+//        let selectedTags = [Tag]()
+//        
+//        let note = notes![0]
+//        
+//        note.tags = NSSet(array: selectedTags)
+        
+        //
+
+        
     }
     
     //MARK: UITableViewDataSource
@@ -44,9 +55,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell!
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func autoUpdateTags(myNote : Note, tagSelection : [Tag]){
+        
+        myNote.tags = NSSet(array: tagSelection)
     }
+    
+    func autoUpdatePictures(myNote : Note, pictureSelection : [Picture]){
+        
+        myNote.pictures = NSSet(array: pictureSelection)
+        
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         /*let affichageController = self.storyboard?.instantiateViewControllerWithIdentifier("TextNote") as! TextNoteViewController
         navigationController!.pushViewController(affichageController, animated: true)*/

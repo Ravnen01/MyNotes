@@ -1,5 +1,5 @@
 //
-//  Category+CoreDataProperties.swift
+//  Tag+CoreDataProperties.swift
 //  MyNotes
 //
 //  Created by iem on 10/02/2016.
@@ -12,11 +12,12 @@
 import Foundation
 import CoreData
 
-extension Category {
+extension Tag {
 
     @NSManaged var name: String?
-    @NSManaged var dateUpdated: NSDate?
+    @NSManaged var color: NSObject?
     @NSManaged var dateCreated: NSDate?
+    @NSManaged var dateUpdated: NSDate?
     @NSManaged var notes: NSSet?
 
 }

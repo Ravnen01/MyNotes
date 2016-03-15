@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class TextNoteViewController: UIViewController {
+class TextNoteViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var parent:ViewProtocol?
     var note:Note?
@@ -23,6 +23,7 @@ class TextNoteViewController: UIViewController {
         super.viewDidLoad()
         title=note?.title
         textView.text = note?.text
+        picker.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -50,7 +51,9 @@ class TextNoteViewController: UIViewController {
     }
     */
     @IBAction func addPictureButton(sender: UIButton) {
-        
+        picker.allowsEditing = false
+        picker.sourceType = .PhotoLibrary
+        presentViewController(picker, animated: true, completion: nil)
     }
 
 }
@@ -68,4 +71,19 @@ extension TextNoteViewController : UITextViewDelegate {
             textView.text = ""
         }
     }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+//MARK: Delegates
+func imagePickerController(
+    picker: UIImagePickerController,
+    didFinishPickingMediaWithInfo info: [String : AnyObject])
+{
+    
+}
+func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    
 }

@@ -159,6 +159,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tapez votre texte..." translatesAutoresizingMaskIntoConstraints="NO" id="NQl-L3-w1s">
+                                <rect key="frame" x="0.0" y="64" width="600" height="275"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Zkg-xd-Wah" id="4NU-gu-G0x"/>
+                                </connections>
+                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eSr-oK-Huk">
                                 <rect key="frame" x="180" y="347" width="240" height="245"/>
                                 <constraints>
@@ -169,35 +177,26 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB3-iW-xF5">
                                 <rect key="frame" x="524" y="536" width="56" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="kIl-VQ-N8z"/>
-                                    <constraint firstAttribute="height" constant="56" id="nMr-T1-thy"/>
+                                    <constraint firstAttribute="width" constant="56" id="9rB-PJ-7er"/>
+                                    <constraint firstAttribute="height" constant="56" id="YEq-lK-QTO"/>
                                 </constraints>
                                 <state key="normal" image="mPictures"/>
                                 <connections>
                                     <action selector="addPictureButton:" destination="Zkg-xd-Wah" eventType="touchUpInside" id="bjJ-XF-bEq"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tapez votre texte..." translatesAutoresizingMaskIntoConstraints="NO" id="NQl-L3-w1s">
-                                <rect key="frame" x="0.0" y="64" width="600" height="275"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Zkg-xd-Wah" id="4NU-gu-G0x"/>
-                                </connections>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NQl-L3-w1s" firstAttribute="top" secondItem="L5d-Nd-99C" secondAttribute="topMargin" constant="64" id="1VT-Kx-oJt"/>
-                            <constraint firstItem="ZB3-iW-xF5" firstAttribute="trailing" secondItem="L5d-Nd-99C" secondAttribute="trailingMargin" id="2K2-cL-rMg"/>
                             <constraint firstItem="eSr-oK-Huk" firstAttribute="centerX" secondItem="L5d-Nd-99C" secondAttribute="centerX" id="6VJ-Oa-ee1"/>
+                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="ZB3-iW-xF5" secondAttribute="bottom" constant="8" id="A80-eP-rcG"/>
                             <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="eSr-oK-Huk" secondAttribute="bottom" constant="8" id="O2I-dy-8s3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NQl-L3-w1s" secondAttribute="trailing" constant="-20" id="SkE-gR-7Hj"/>
                             <constraint firstItem="eSr-oK-Huk" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" constant="8" id="XXB-G6-lXi"/>
                             <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" constant="261" id="cQD-B1-6zO"/>
                             <constraint firstItem="NQl-L3-w1s" firstAttribute="leading" secondItem="L5d-Nd-99C" secondAttribute="leadingMargin" constant="-20" id="eOI-yj-CDS"/>
-                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="ZB3-iW-xF5" secondAttribute="bottom" constant="8" id="qAU-Qr-J03"/>
+                            <constraint firstItem="ZB3-iW-xF5" firstAttribute="trailing" secondItem="L5d-Nd-99C" secondAttribute="trailingMargin" id="wh9-6Q-gu2"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

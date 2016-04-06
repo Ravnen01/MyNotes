@@ -27,7 +27,7 @@ class TextNoteViewController: UIViewController, UIImagePickerControllerDelegate,
         title=note?.title
         textView.text = note?.text
         picker.delegate = self
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         imageViewHeightConstraint.constant = 0;
     }
 
@@ -42,6 +42,7 @@ class TextNoteViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     @IBAction func SaveButton(sender: AnyObject) {
         note?.text = textView.text
+        //note?.pictures = imageAdded.image
         NoteManager().appDelegate.saveContext()
         parent?.onCancelChildren()
     }

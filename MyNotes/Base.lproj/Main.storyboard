@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -158,15 +159,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tapez votre texte..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NQl-L3-w1s">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Zkg-xd-Wah" id="4NU-gu-G0x"/>
-                                </connections>
-                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eSr-oK-Huk">
+                                <rect key="frame" x="180" y="347" width="240" height="245"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="Ier-4M-DU3"/>
+                                    <constraint firstAttribute="width" secondItem="eSr-oK-Huk" secondAttribute="height" multiplier="48:49" id="hnn-Be-OwE"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZB3-iW-xF5">
                                 <rect key="frame" x="524" y="536" width="56" height="56"/>
                                 <constraints>
@@ -178,16 +177,33 @@
                                     <action selector="addPictureButton:" destination="Zkg-xd-Wah" eventType="touchUpInside" id="bjJ-XF-bEq"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tapez votre texte..." translatesAutoresizingMaskIntoConstraints="NO" id="NQl-L3-w1s">
+                                <rect key="frame" x="0.0" y="64" width="600" height="275"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Zkg-xd-Wah" id="4NU-gu-G0x"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NQl-L3-w1s" firstAttribute="top" secondItem="L5d-Nd-99C" secondAttribute="topMargin" id="1VT-Kx-oJt"/>
+                            <constraint firstItem="NQl-L3-w1s" firstAttribute="top" secondItem="L5d-Nd-99C" secondAttribute="topMargin" constant="64" id="1VT-Kx-oJt"/>
                             <constraint firstItem="ZB3-iW-xF5" firstAttribute="trailing" secondItem="L5d-Nd-99C" secondAttribute="trailingMargin" id="2K2-cL-rMg"/>
+                            <constraint firstItem="eSr-oK-Huk" firstAttribute="centerX" secondItem="L5d-Nd-99C" secondAttribute="centerX" id="6VJ-Oa-ee1"/>
+                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="eSr-oK-Huk" secondAttribute="bottom" constant="8" id="O2I-dy-8s3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NQl-L3-w1s" secondAttribute="trailing" constant="-20" id="SkE-gR-7Hj"/>
-                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" id="cQD-B1-6zO"/>
+                            <constraint firstItem="eSr-oK-Huk" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" constant="8" id="XXB-G6-lXi"/>
+                            <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="NQl-L3-w1s" secondAttribute="bottom" constant="261" id="cQD-B1-6zO"/>
                             <constraint firstItem="NQl-L3-w1s" firstAttribute="leading" secondItem="L5d-Nd-99C" secondAttribute="leadingMargin" constant="-20" id="eOI-yj-CDS"/>
                             <constraint firstItem="R6I-fC-8zN" firstAttribute="top" secondItem="ZB3-iW-xF5" secondAttribute="bottom" constant="8" id="qAU-Qr-J03"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cQD-B1-6zO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="tTz-f0-bnZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="yxX-NB-ftl">
@@ -202,12 +218,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageAdded" destination="eSr-oK-Huk" id="KLD-GU-zMB"/>
+                        <outlet property="imageViewHeightConstraint" destination="Ier-4M-DU3" id="zxj-f2-9ze"/>
                         <outlet property="textView" destination="NQl-L3-w1s" id="8fc-Ir-7xx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yfo-CF-chB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4655" y="191"/>
+            <point key="canvasLocation" x="4647" y="244"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f8D-b6-6pr">

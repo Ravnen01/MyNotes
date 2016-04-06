@@ -28,18 +28,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         title=categorie?.name
         notes=categorie?.notes?.allObjects as! [Note]
-        
-        // fonction à créer
-        
-//        let selectedTags = [Tag]()
-//        
-//        let note = notes![0]
-//        
-//        note.tags = NSSet(array: selectedTags)
-        
-        //
-
-        
     }
     
     //MARK: UITableViewDataSource

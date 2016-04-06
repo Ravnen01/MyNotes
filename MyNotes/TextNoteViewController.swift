@@ -16,6 +16,9 @@ class TextNoteViewController: UIViewController, UIImagePickerControllerDelegate,
     var note:Note?
     
     let picker = UIImagePickerController()
+    
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageAdded:UIImageView!
 
     @IBOutlet weak var textView: UITextView!
     
@@ -24,7 +27,8 @@ class TextNoteViewController: UIViewController, UIImagePickerControllerDelegate,
         title=note?.title
         textView.text = note?.text
         picker.delegate = self
-        // Do any additional setup after loading the view.
+        
+        imageViewHeightConstraint.constant = 0;
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +59,19 @@ class TextNoteViewController: UIViewController, UIImagePickerControllerDelegate,
         picker.sourceType = .PhotoLibrary
         presentViewController(picker, animated: true, completion: nil)
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+
+        imageAdded.image = chosenImage
+        
+                
+        dismissViewControllerAnimated(true) { () -> Void in
+            self.imageViewHeightConstraint.constant = 245;
+        }
+        
+    }
 
 }
 
@@ -80,9 +97,8 @@ extension TextNoteViewController : UITextViewDelegate {
 //MARK: Delegates
 func imagePickerController(
     picker: UIImagePickerController,
-    didFinishPickingMediaWithInfo info: [String : AnyObject])
-{
-    
+    didFinishPickingMediaWithInfo info: [String : AnyObject]){
+        
 }
 func imagePickerControllerDidCancel(picker: UIImagePickerController) {
     
